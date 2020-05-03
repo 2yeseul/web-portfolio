@@ -193,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .service-icon {
 	background-color: #fff;
-	color: #1d809f;
+	color: #ffc107;
 	height: 7rem;
 	width: 7rem;
 	display: block;
@@ -336,6 +336,10 @@ a:active, a:focus, a:hover {
 	border-color: #ba9106 !important
 }
 
+.about:hover {
+	background-color : #343a40;
+}
+
 .btn-dark {
 	color: #fff !important
 }
@@ -346,7 +350,7 @@ a:active, a:focus, a:hover {
 }
 
 .bg-primary {
-	background-color: #343a40 !important
+	background-color: #898b8d !important
 }
 
 .text-primary {
