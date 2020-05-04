@@ -1,0 +1,624 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>앉는 카페</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e137d94a-4617-4c5e-aea3-a61b83eae731" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🏬</span></div><h1 class="page-title">앉는 카페</h1></header><div class="page-body"><p id="af30424b-9066-4c80-9cac-01337348d36d" class="block-color-gray_background">👉카페의 <strong>실시간</strong> 인원수와 혼잡도 안내 IoT 서비스</p><h3 id="dc331cf5-c6c2-4e7e-aa0e-f907ce65410f" class="">🗓 개발기간</h3><ul id="12ff60bf-c57c-445e-87fc-6b5f20191e6f" class="bulleted-list"><li>2018.06 ~ 2018.08 </li></ul><h3 id="2e593c02-5828-4d8c-9002-eb35fe47fcc7" class="">🤔 개발의도</h3><ul id="756c0537-d777-4d5a-8962-7899d3c11eee" class="bulleted-list"><li>노트북을 자주 사용해야하는 전공 특성상, 카페에 방문할 경우가 잦은데 만석인 경우 여러 카페를 찾아다녀야하는 불편함을 해결하고자 개발</li></ul><h3 id="86553eda-9f59-4505-afe9-7ed842fb1ffb" class="">🏆 수상</h3><ul id="a6282232-bd0a-4c65-94ed-4fbf22cd37ff" class="bulleted-list"><li>2018년도 성신여자대학교 소프트웨어 경진대회 고학년부 3위</li></ul><h3 id="f705a293-a03b-42aa-84bc-ad7a2da88fa3" class="">👩‍💻 역할 및 Tech Stacks</h3><ul id="0d7626df-ba44-4f7e-a623-ba1dc69b9e83" class="bulleted-list"><li>서비스 기획 및 총괄</li></ul><ul id="cd28d178-6fed-4e9c-bd23-5e8252cd464d" class="bulleted-list"><li><strong>아두이노</strong>를 이용해 <strong>실시간</strong> 인원 수 카운팅과 혼잡도 계산 및 웹과의 연동 구현</li></ul><ul id="544a09ab-35a3-4001-87f5-e061ce142ba5" class="bulleted-list"><li><strong>백엔드</strong>(PHP, MySQL, JSON 사용) 개발</li></ul><h3 id="1e09b283-0251-455e-a2a3-b0b1ebe9e42e" class="">🙋‍♀️ 구현 내용</h3><ul id="6e8c4a41-f933-4f5e-952d-fd6755781ff6" class="toggle"><li><details><summary><strong>Arduino</strong></summary><figure id="90b387cf-9331-42c6-abe2-27f8fa218545" class="image"><a href="https://user-images.githubusercontent.com/43533905/47887145-366c1300-de81-11e8-991d-ed2da93f3322.png"><img src="https://user-images.githubusercontent.com/43533905/47887145-366c1300-de81-11e8-991d-ed2da93f3322.png"/></a></figure><ul id="3e5c3867-b8d2-4542-b200-212f71bbad59" class="bulleted-list"><li><strong>Wemos D1R1 Board</strong><p id="48f8e0f6-a8cd-4959-91d8-c9ec48fbb3b7" class="">WIFI 모듈이 내장되어있어 무선통신이 가능</p></li></ul><ul id="7e79ac77-eeb0-4a55-a3cb-65fd5e5534cd" class="bulleted-list"><li><strong>적외선 센서</strong><p id="2cb9ec57-95f0-4b3f-a07c-88e2d8bdf369" class="">본체에 2개의 센서를 연결하여 각각 들어오고 나가는 사람 counting</p></li></ul><ul id="ecf517d0-1628-4749-ba47-52edafc75dba" class="bulleted-list"><li><strong>GET Request를 통하여 Server에 실시간으로 Data 전송</strong><p id="02135380-f7bd-49fc-9ff2-a22113d24ab1" class=""><strong>Data</strong><div class="indented"><ul id="35fcc22e-ff06-4b99-897f-aa744d8cb5e7" class="bulleted-list"><li>센서로부터 측정되는 두 개의 데이터</li></ul><ul id="5d990337-4ea7-446a-8052-45648a60fcd1" class="bulleted-list"><li><strong>카페 고유의 ID</strong>와 각 카페별 최신 Data값 구별을 위한 <strong>uid</strong></li></ul></div></p></li></ul></details></li></ul><ul id="bdfddc9a-a7dd-4045-8e67-81994d8b6936" class="toggle"><li><details><summary><strong>PHP</strong></summary><ul id="0f12f23d-5514-47f8-9153-0f43d180ac64" class="bulleted-list"><li>아두이노로 부터 GET 방식을 통해 값을 받은 후, DB Table에 삽입</li></ul><ul id="c71b2c86-5103-407a-8b23-75a0c28b4781" class="bulleted-list"><li>실시간 인원 정보는 또다른 DB 테이블은 사용하지 않고 PHP 내에서 처리</li></ul><ul id="2405873d-f8df-43fb-9d2a-d632bdfb4047" class="bulleted-list"><li>인원수 측정에 있어 오차를 극복하기 위해 비율을 정하여 혼잡도로 표시</li></ul></details></li></ul><ul id="2599b9a2-1db9-4c78-8fd2-2140aebc3a47" class="toggle"><li><details ><summary>JSON</summary><p id="e9d844f5-ec78-4ff8-b7f3-23112767b861" class="">Android로 값을 넘겨줄 땐 JSON 형식으로 넘겨줘야하기 때문에 간단한 처리를 해주었음</p></details></li></ul><h3 id="51a233de-3340-4ce1-9f92-f68ec6306344" class="">🎞실제구현모습</h3><ul id="82bce949-bc08-4975-99e0-e26db1e88e54" class="toggle"><li><details><summary><mark class="highlight-gray">학교 앞 카페 사장님께 양해를 부탁드리고 설치 및 촬영을 진행하였음</mark></summary><figure id="33ee646e-63f9-4092-b46a-9ce15744c39d" class="image"><a href="img/KakaoTalk_20200425_071112535.jpg"><img style="width:3024px" src="img/KakaoTalk_20200425_071112535.jpg"/></a></figure><figure id="67f8e1da-39c5-43a1-a24b-bfdfd77a3f4b" class="image"><a href="img/ezgif-3-c35757742c8c.gif"><img style="width:600px" src="img/ezgif-3-c35757742c8c.gif"/></a></figure><p id="7c586406-22f7-40c0-9c7d-15884c0ddc51" class="">
+</p></details></li></ul><h3 id="87856f2a-4b76-4e34-94bc-e53a2b8fa3f2" class="">📂GitHub</h3><figure id="d9e9cbe7-f8ed-423a-a6a0-e7ff9f43990e"><a href="https://github.com/2yeseul/sitting-cafe" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">2yeseul/sitting-cafe</div><div class="bookmark-description">I used arduino D1 R1 board that the ESP8266 (wifi module) mounted in it to make connection between arduino and the server by PHP. (and ACTUALLY I recommend the D1 R1 board who use http requests by WIFI than only using ESP8266 module because of its instability..)</div></div><div class="bookmark-href"><img src="https://github.com/favicon.ico" class="icon bookmark-icon"/>https://github.com/2yeseul/sitting-cafe</div></div><img src="https://avatars2.githubusercontent.com/u/43533905?s=400&amp;v=4" class="bookmark-image"/></a></figure><p id="ead2ff1b-c833-4d2a-98cb-bfb22816a8ca" class="">
+</p></div></article></body></html>

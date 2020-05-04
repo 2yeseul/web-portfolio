@@ -14,4 +14,12 @@ public class WebController {
 	public String test() {
 		return "test";
 	}
+	@GetMapping(value="/p01")
+	public String p01() {
+		return "sittingCafe";
+	}
+	@GetMapping(value="/p02")
+	public String p02() {
+		return "Easy Baseball";
+	}
 }

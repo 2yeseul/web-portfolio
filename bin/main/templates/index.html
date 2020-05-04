@@ -38,7 +38,10 @@
         <a class="js-scroll-trigger" href="#abot">About</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#awards">Awards</a>
+        <a class="js-scroll-trigger" href="#techs">Stacks</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#Awards">Awards</a>
       </li>
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
@@ -54,12 +57,10 @@
     <div class="container text-center my-auto">
       <h1 class="mb-1" style="color:white; text-align: left">이예슬의 Portfolio</h1>
       <h3 class="mb-5" style="color:white">
-        <em></em>
       </h3>
       <h3 class="mb-5" style="color:white">
-        <em></em>
       </h3>
-      <h3 style="text-align:left"><em><a class="about js-scroll-trigger" href="#about" style="color:white; text-align: left; text-decoration:underline">About Me</a></em></h3>
+      <h4 style="text-align:left"><em><a class="about js-scroll-trigger" href="#about" style="color:white; text-align: left; text-decoration:underline">→ About Me</a></em></h4>
     </div>
     <div class="overlay"></div>
   </header>
@@ -67,10 +68,11 @@
   <!-- About -->
   <section class="content-section bg-light" id="about">
     <div class="container text-center">
-      <div class="row">
+      <div class="row" style="text-align:left">
         <div class="col-lg-10 mx-auto">
-          <h2>열정적이고 언제나 경청하는 가슴 따뜻한 개발자가 되고싶습니다</h2>
-          <p class="lead mb-5">백엔드 개발자를 꿈꿉니다. 그 중에서도 Spring에 매력을 느껴, 배우고 있습니다.</p>
+          <h2>열정적이고 </h2>
+          <h2>언제나 경청하는 가슴 따뜻한 개발자가 되고싶습니다</h2>
+          <p class="lead mb-5">항상 배울 준비가 되어있는 백엔드 개발자를 꿈꿉니다.</p>
           <p class ="lead mb-5" style="text-align:left">
           
           	˚ 이예슬 <br>
@@ -78,12 +80,35 @@
           	˚ Contact - 20152917@sungshin.ac.kr <br>
           	˚ <a href="https://github.com/2yeseul">Github</a> <br>
           	˚ <a href="https://velog.io/@2yeseul">Blog</a> <br>
-          	
+          	<br>
+          	<a class="btn btn-dark btn-xl js-scroll-trigger" href="#techs" style="color:black;">Techs</a>
           </p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#Awards">Awards</a>
         </div>
       </div>
     </div>
+  </section>
+  <!-- Techs -->
+  <section class ="content-section bg-light" id="techs">
+  	<div class="container text-center">
+  		<div class="row">
+        <div class="col-lg-10 mx-auto" style="text-align:right">
+          <h2>사용할 수 있는 기술은 다음과 같습니다.</h2>
+          <p class="lead mb-5">주로 Java와 C++을 사용을 즐겨하고,<br> 최근에는 Spring boot에 관심이 많아 이를 이용하여 프로젝트를 진행중입니다. </p>
+          	<p class ="lead mb-5" style="text-align:right">
+          
+          	˚ Java <br>
+          	˚ C++ <br>
+          	˚ Spring Boot <br>
+          	˚ JSP <br>
+          	˚ HTML, CSS, JavaScript <br>
+          	˚ MySQL, MS-SQL <br>
+          	
+         	 </p>
+         
+          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#Awards">Awards</a>
+        </div>
+      </div>
+  	</div>
   </section>
 
   <!-- Awards -->
@@ -133,7 +158,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" th:href="@{/p01}">
             <span class="caption">
               <span class="caption-content">
                 <h2>앉는 카페</h2>
@@ -144,7 +169,7 @@
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" th:href="@{/p02}">
             <span class="caption">
               <span class="caption-content">
                 <h2>Easy Baseball</h2>
